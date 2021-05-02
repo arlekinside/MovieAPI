@@ -1,7 +1,15 @@
 FROM arlekinside/java_alpine
 
-RUN mkdir -p /usr/src/myapp
+RUN mkdir -p -m 777 /usr/src/myapp
+
 COPY . /usr/src/myapp
+
 WORKDIR /usr/src/myapp
 
-CMD ["sh"]
+RUN mkdir -p /src/main/resources
+
+EXPOSE 8000
+
+EXPOSE 5432
+
+CMD ["/bin/sh", "secrets.sh"]
