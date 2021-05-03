@@ -12,4 +12,4 @@ EXPOSE 8000
 
 EXPOSE 5432
 
-CMD ["/bin/sh", "secrets.sh"]
+CMD ["/bin/sh", "run.sh"]
