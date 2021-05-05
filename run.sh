@@ -8,7 +8,7 @@ DB_DRIVER=$(cat $SECRETS_PATH/db_driver)
 DB_URL=$(cat $SECRETS_PATH/db_url)
 DB_USERNAME=$(cat $SECRETS_PATH/db_username)
 DB_PASSWORD=$(cat $SECRETS_PATH/db_password)
-FILE_PATH=/src/main/resources/application.properties
+FILE_PATH=/usr/src/myapp/src/main/resources/application.properties
 
 echo "server.port=${PORT}" >> $FILE_PATH
 echo "spring.jpa.hibernate.ddl-auto=${DB_MODE}" >> $FILE_PATH
