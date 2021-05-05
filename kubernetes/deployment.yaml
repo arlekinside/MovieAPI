@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-api-deployment
+  labels:
+    app: movie-api
+    env: prod
+    owner: arlekinside
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: movie-api
+  template:
+    metadata:
+       labels:
+        project: movie-api
+    spec:
+      containers:
+         - name: movie-api-container
+           image: arlekinside/movie-api:latest
+           ports:
+             - containerPort: 80
