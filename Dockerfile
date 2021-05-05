@@ -6,4 +6,4 @@ COPY . /usr/src/myapp
 
 WORKDIR /usr/src/myapp
 
-CMD ["./gradlew", "bootRun"]
+CMD ["/bin/sh", "run.sh"]

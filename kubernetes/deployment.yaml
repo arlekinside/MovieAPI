@@ -20,4 +20,11 @@ spec:
          - name: movie-api-container
            image: arlekinside/movie-api:latest
            ports:
-             - containerPort: 80
+             - containerPort: 8000
+           volumeMounts:
+             - mountPath: application-properties
+               name: /etc/application-properties
+      volumes:
+        - name: application-properties
+          secret:
+            secretName: application-properties-secrets
