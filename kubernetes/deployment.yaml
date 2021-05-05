@@ -22,8 +22,8 @@ spec:
            ports:
              - containerPort: 8000
            volumeMounts:
-             - mountPath: application-properties
-               name: /etc/application-properties
+             - mountPath: /etc/application-properties
+               name: application-properties
       volumes:
         - name: application-properties
           secret:
