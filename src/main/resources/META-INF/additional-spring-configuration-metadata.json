@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "imbd.api.key",
+      "type": "java.lang.String",
+      "description": "Description for imbd.api.key."
+    },
+    {
+      "name": "imbd.api.url",
+      "type": "java.lang.String",
+      "description": "Description for imbd.api.url."
+    }
+  ]
+}

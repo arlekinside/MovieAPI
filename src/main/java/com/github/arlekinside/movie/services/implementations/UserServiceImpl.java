@@ -1,9 +1,11 @@
-package com.github.arlekinside.movie.services;
+package com.github.arlekinside.movie.services.implementations;
 
 import com.github.arlekinside.movie.exceptions.IncorrectUserException;
 import com.github.arlekinside.movie.exceptions.UserNotFoundException;
+import com.github.arlekinside.movie.models.Movie;
 import com.github.arlekinside.movie.models.User;
 import com.github.arlekinside.movie.repositories.UserRepository;
+import com.github.arlekinside.movie.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,12 +34,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(User user, String id) {
-        repository
-                .findById(id)
-                .orElseThrow(() -> new UserNotFoundException("---Error! No such user in the database---"));
-        repository.deleteById(id);
-        repository.save(user);
+    public void updateUser(User user) {
+        if(!repository.findById(user.getId()).isPresent()) throw new UserNotFoundException("---No such user in the database---");
+        saveUser(user);
     }
 
     @Override
