@@ -19,7 +19,7 @@ echo "spring.datasource.url=${DB_URL}" >> $FILE_PATH
 echo "spring.datasource.username=${DB_USERNAME}" >> $FILE_PATH
 echo "spring.datasource.password=${DB_PASSWORD}" >> $FILE_PATH
 echo "imbd.api.key=${IMBD_API_KEY}" >> $FILE_PATH
-echo "imbd_api_url=${IMBD_API_URL}" >> $FILE_PATH
+echo "imbd.api.url=${IMBD_API_URL}" >> $FILE_PATH
 
 #Running the application
 ./gradlew bootRun
