@@ -19,7 +19,7 @@ public class User {
     private String lastName;
     private String username;
     private String status;
-    @JsonIgnore
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "FAVOURITES",
             joinColumns = {
