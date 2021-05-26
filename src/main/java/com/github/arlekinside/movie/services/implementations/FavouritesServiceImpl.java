@@ -26,14 +26,14 @@ public class FavouritesServiceImpl implements FavouritesService {
 
 
     @Override
-    public List<Movie> getAll(String id) {
+    public List<Movie> getAll(long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("---No such user in the darabase---"))
                 .getMovies();
     }
 
     @Override
-    public void addMovie(String id, Movie movie) {
+    public void addMovie(long id, Movie movie) {
         if (!movieRepository.existsById(movie.getId())) movieRepository.save(movie);
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("---No such user in the darabase---"));
@@ -44,7 +44,7 @@ public class FavouritesServiceImpl implements FavouritesService {
     }
 
     @Override
-    public void deleteMovie(String id, Movie movie) {
+    public void deleteMovie(long id, Movie movie) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("---No such user in the darabase---"));
         List<Movie> temp = user.getMovies();

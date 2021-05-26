@@ -5,9 +5,9 @@ import com.github.arlekinside.movie.models.Movie;
 import java.util.List;
 
 public interface FavouritesService {
-    List<Movie> getAll(String id);
+    List<Movie> getAll(long id);
 
-    void addMovie(String id, Movie movie);
+    void addMovie(long id, Movie movie);
 
-    void deleteMovie(String id, Movie movie);
+    void deleteMovie(long id, Movie movie);
 }

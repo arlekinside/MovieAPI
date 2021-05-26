@@ -19,17 +19,17 @@ public class FavouritesController {
     }
 
     @GetMapping("")
-    public List<Movie> getALL(@PathVariable("id") String id) {
+    public List<Movie> getALL(@PathVariable("id") long id) {
         return service.getAll(id);
     }
 
     @PostMapping("")
-    public void addMovie(@PathVariable("id") String id, @RequestBody Movie movie) {
+    public void addMovie(@PathVariable("id") long id, @RequestBody Movie movie) {
         service.addMovie(id, movie);
     }
 
     @DeleteMapping("")
-    public void deleteMovie(@PathVariable("id") String id, @RequestBody Movie movie) {
+    public void deleteMovie(@PathVariable("id") long id, @RequestBody Movie movie) {
         service.deleteMovie(id, movie);
     }
 }
