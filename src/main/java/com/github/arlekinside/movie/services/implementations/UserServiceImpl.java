@@ -2,7 +2,6 @@ package com.github.arlekinside.movie.services.implementations;
 
 import com.github.arlekinside.movie.exceptions.IncorrectUserException;
 import com.github.arlekinside.movie.exceptions.UserNotFoundException;
-import com.github.arlekinside.movie.models.Movie;
 import com.github.arlekinside.movie.models.User;
 import com.github.arlekinside.movie.repositories.UserRepository;
 import com.github.arlekinside.movie.services.UserService;
@@ -35,14 +34,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(User user) {
-        if (!repository.findById(user.getId()).isPresent())
+        if (!repository.findById(user.getId().toString()).isPresent())
             throw new UserNotFoundException("---No such user in the database---");
         saveUser(user);
     }
 
     @Override
     public void saveUser(User user) {
-        if (user.getId().isEmpty()) throw new IncorrectUserException("---Error! User id is empty---");
+        if (user.getId() == 0) throw new IncorrectUserException("---Error! User id is empty---");
         repository.save(user);
     }
 
