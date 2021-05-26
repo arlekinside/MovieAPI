@@ -34,7 +34,7 @@ public class FavouritesServiceImpl implements FavouritesService {
 
     @Override
     public void addMovie(String id, Movie movie) {
-        if(!movieRepository.existsById(movie.getId())) movieRepository.save(movie);
+        if (!movieRepository.existsById(movie.getId())) movieRepository.save(movie);
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("---No such user in the darabase---"));
         List<Movie> temp = user.getMovies();
@@ -48,7 +48,7 @@ public class FavouritesServiceImpl implements FavouritesService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("---No such user in the darabase---"));
         List<Movie> temp = user.getMovies();
-        if(!temp.contains(movie)) throw new MovieNotFoundException("---No such movie in the list---");
+        if (!temp.contains(movie)) throw new MovieNotFoundException("---No such movie in the list---");
         temp.remove(movie);
         user.setMovies(temp);
         userRepository.save(user);

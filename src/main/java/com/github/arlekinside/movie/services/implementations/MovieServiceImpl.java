@@ -44,7 +44,7 @@ public class MovieServiceImpl implements MovieService {
                         .stream()
                         .findFirst()
                         .orElseThrow(() -> new MovieNotFoundException("No suck a movie on the internet"));
-            }else{
+            } else {
                 temp = movies.get(0);
             }
             save(temp);

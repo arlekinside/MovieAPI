@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class MovieExceptionHandler {
 
     @ExceptionHandler(MovieNotFoundException.class)
-    public ResponseEntity<Object> movieNotFound(MovieNotFoundException ex){
+    public ResponseEntity<Object> movieNotFound(MovieNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(IncorrectMovieException.class)
-    public ResponseEntity<Object> incorrectMovie(IncorrectMovieException ex){
+    public ResponseEntity<Object> incorrectMovie(IncorrectMovieException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 }

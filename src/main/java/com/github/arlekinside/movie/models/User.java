@@ -18,14 +18,15 @@ public class User {
     private String firstName;
     private String lastName;
     private String username;
-
+    private String status;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "FAVOURITES",
             joinColumns = {
-                @JoinColumn(name="user_id")
+                    @JoinColumn(name = "user_id")
             },
             inverseJoinColumns = {
-                @JoinColumn(name = "movie_id")
+                    @JoinColumn(name = "movie_id")
             }
     )
     private List<Movie> movies = new ArrayList<>();
@@ -71,6 +72,14 @@ public class User {
 
     public void setMovies(List<Movie> movies) {
         this.movies = movies;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override

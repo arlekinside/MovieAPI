@@ -35,7 +35,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(User user) {
-        if(!repository.findById(user.getId()).isPresent()) throw new UserNotFoundException("---No such user in the database---");
+        if (!repository.findById(user.getId()).isPresent())
+            throw new UserNotFoundException("---No such user in the database---");
         saveUser(user);
     }
 

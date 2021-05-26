@@ -8,8 +8,11 @@ import java.util.List;
 public interface MovieService {
 
     List<Movie> getAll();
-    Movie get(String field)  throws IOException;
+
+    Movie get(String field) throws IOException;
+
     void save(Movie movie);
+
     void delete(Movie movie);
 
 }

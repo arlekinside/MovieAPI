@@ -21,12 +21,12 @@ public class MovieController {
     }
 
     @GetMapping("")
-    public List<Movie> getAll(){
+    public List<Movie> getAll() {
         return service.getAll();
     }
 
     @GetMapping("/{id}")
-    public Movie getById(@PathVariable("id") String id){
+    public Movie getById(@PathVariable("id") String id) {
         try {
             return service.get(id);
         } catch (IOException e) {
@@ -35,7 +35,7 @@ public class MovieController {
     }
 
     @GetMapping("/find")
-    public Movie findByTitle(@RequestParam("title") String title){
+    public Movie findByTitle(@RequestParam("title") String title) {
         try {
             return service.get(title);
         } catch (IOException e) {
