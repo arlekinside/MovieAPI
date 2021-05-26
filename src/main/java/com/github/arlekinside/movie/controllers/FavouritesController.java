@@ -28,6 +28,10 @@ public class FavouritesController {
         service.addMovie(id, movie);
     }
 
+    @PostMapping("/byId")
+    public void addMovieById(@PathVariable("id") long id, @RequestBody String movieId){
+        service.addMovieById(id, movieId);
+    }
     @DeleteMapping("")
     public void deleteMovie(@PathVariable("id") long id, @RequestBody Movie movie) {
         service.deleteMovie(id, movie);

@@ -9,5 +9,7 @@ public interface FavouritesService {
 
     void addMovie(long id, Movie movie);
 
+    void addMovieById(long id, String movieId);
+
     void deleteMovie(long id, Movie movie);
 }
