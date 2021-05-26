@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public void updateUser(@RequestBody User user, @PathVariable Long id) {
+    public void updateUser(@RequestBody User user, @PathVariable String id) {
         if (user.getId().equals(id))
             service.updateUser(user);
     }
