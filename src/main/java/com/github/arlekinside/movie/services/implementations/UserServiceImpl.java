@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUser(String id) {
+    public User getUser(long id) {
         return repository
                 .findById(id)
                 .orElseThrow(() -> new UserNotFoundException("---Error! No such user in the database---"));
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(User user) {
-        if (!repository.findById(user.getId().toString()).isPresent())
+        if (!repository.findById(user.getId()).isPresent())
             throw new UserNotFoundException("---No such user in the database---");
         saveUser(user);
     }
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(String id) {
+    public void deleteUser(long id) {
         repository
                 .findById(id)
                 .orElseThrow(() -> new UserNotFoundException("---Error! No such user in the database---"));
