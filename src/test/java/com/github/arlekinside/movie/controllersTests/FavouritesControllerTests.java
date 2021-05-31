@@ -2,7 +2,6 @@ package com.github.arlekinside.movie.controllersTests;
 
 import com.github.arlekinside.movie.models.Movie;
 import com.github.arlekinside.movie.models.User;
-import com.github.arlekinside.movie.repositories.MovieRepository;
 import com.github.arlekinside.movie.repositories.UserRepository;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.AfterEach;
@@ -11,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
@@ -23,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestPropertySource(locations = "classpath:application.properties")
+@Order(5)
 public class FavouritesControllerTests {
 
     @Autowired
@@ -51,36 +52,37 @@ public class FavouritesControllerTests {
     }
 
     @Test
-    public void whenAddMovie_thenResponse200() throws Exception{
+    public void whenAddMovie_thenResponse200() throws Exception {
         mvc.perform(
                 post("/users/1/favourites")
-                .header("Content-Type", "application/json")
-                .content(gson.toJson(movie))
+                        .header("Content-Type", "application/json")
+                        .content(gson.toJson(movie))
         )
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void whenGetAll_thenResponse200_andTestMovieMatchesResponse() throws Exception{
+    public void whenGetAll_thenResponse200_andTestMovieMatchesResponse() throws Exception {
         whenAddMovie_thenResponse200();
         mvc.perform(get("/users/1/favourites"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(content().string(containsString(gson.toJson(movie.getId()))));
     }
+
     @Test
-    public void whenDeleteMovie_thenResponse200() throws Exception{
+    public void whenDeleteMovie_thenResponse200() throws Exception {
         whenAddMovie_thenResponse200();
         mvc.perform(
                 delete("/users/1/favourites/")
-                .header("Content-Type", "application/json")
-                .content(gson.toJson(movie))
+                        .header("Content-Type", "application/json")
+                        .content(gson.toJson(movie))
         )
                 .andExpect(status().isOk());
     }
 
     @AfterEach
-    public void finish(){
+    public void finish() {
         userRepository.delete(user);
     }
 }

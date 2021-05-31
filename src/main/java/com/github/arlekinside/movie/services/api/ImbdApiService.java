@@ -1,6 +1,5 @@
 package com.github.arlekinside.movie.services.api;
 
-import com.github.arlekinside.movie.exceptions.MovieNotFoundException;
 import com.github.arlekinside.movie.models.Movie;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -9,13 +8,11 @@ import okhttp3.Request;
 import okhttp3.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.Future;
 
 @Service
 public class ImbdApiService {
