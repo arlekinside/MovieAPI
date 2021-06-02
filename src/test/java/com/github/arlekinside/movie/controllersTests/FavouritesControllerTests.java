@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestPropertySource(locations = "classpath:application.properties")
-@Order(5)
+@Order(8)
 public class FavouritesControllerTests {
 
     @Autowired
@@ -38,7 +38,7 @@ public class FavouritesControllerTests {
     private Movie movie;
 
     @BeforeEach
-    public void addTestUser() {
+    public void init() {
         user = new User();
         movie = new Movie();
         user.setUsername("username");

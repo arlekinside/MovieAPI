@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestPropertySource(locations = "classpath:application.properties")
-@Order(4)
+@Order(7)
 public class MovieControllerTests {
     @Autowired
     private MockMvc mvc;

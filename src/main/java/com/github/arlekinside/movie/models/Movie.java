@@ -1,7 +1,6 @@
 package com.github.arlekinside.movie.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.gson.annotations.Expose;
 
 import javax.persistence.*;
 import java.util.ArrayList;

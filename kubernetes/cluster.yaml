@@ -1,0 +1,14 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: api-deployment
+  region: eu-west-2
+
+nodeGroups:
+  - name: api-deploy-node
+    instanceType: m5.large
+    desiredCapacity: 1
+    volumeSize: 10
+    ssh:
+      allow: true

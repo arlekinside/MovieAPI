@@ -1,8 +1,5 @@
 package com.github.arlekinside.movie.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.gson.annotations.Expose;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +84,7 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id;
+        return id == user.id && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(username, user.username) && Objects.equals(status, user.status);
     }
 
     @Override
